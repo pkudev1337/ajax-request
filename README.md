@@ -16,6 +16,15 @@ async function ajaxRequest(
 )
 ```
 
+Events
+-
+**события для отслеживания состояния запроса:**
+
+- ajaxRequestBefore — перед началом запроса.
+- ajaxRequestSuccess — при успешном завершении.
+- ajaxRequestError — при возникновении ошибки.
+- ajaxRequestAfter — после завершения запроса (всегда вызывается).
+
 Usage
 -
 
