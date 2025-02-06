@@ -84,6 +84,8 @@ Example
     click me
 </button>
 
+<script src="script.js"></script>
+
 <script>
     // Create listener for custom event
     window.addEventListener('ajaxRequestSuccess', (e) => {
@@ -93,7 +95,7 @@ Example
 
     document.querySelector('.btn').addEventListener('click', function () {
         ajaxRequest(
-            'http:localhost/testfetch.php', 
+            'http://localhost/testfetch.php', 
             'post', 
             {
                 param1: 'param1value'

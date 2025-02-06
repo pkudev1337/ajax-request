@@ -7,8 +7,11 @@
 </head>
 <body>
     <button type="button" class="btn">
-        click me
+        send test request
     </button>
+
+    <script src="script.js"></script>
+
     <script>
         window.addEventListener('ajaxRequestError', (e) => {
             console.log('ajaxRequestError');
@@ -34,8 +37,16 @@
             }
         });
         
-        document.querySelector('.btn').addEventListener('click', function () {
-            ajaxRequest('http:localhost/testfetch.php?test=123', 'post', {param1: 'param1value'});
+        document.querySelector('.btn')
+            ?.addEventListener('click', function () {
+                ajaxRequest(
+                    'http://localhost/testfetch.php', 
+                    'post', 
+                    {
+                        name: 'pkudev'
+                    },
+                    'callback'
+                );
         });
     </script>
 </body>
