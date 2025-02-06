@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+</head>
+<body>
+    <button type="button" class="btn">
+        click me
+    </button>
+    <script>
+        window.addEventListener('ajaxRequestError', (e) => {
+            console.log('ajaxRequestError');
+            console.log(e.detail.error.message, 'Form ID:' + e.detail.form);
+        });
+        
+        window.addEventListener('ajaxRequestSuccess', (e) => {
+            console.log('ajaxRequestSuccess');
+            console.log(e.detail.data, 'Form ID:' + e.detail.form);
+        });
+        
+        window.addEventListener('ajaxRequestBefore', (e) => {
+            console.log('ajaxRequestBefore');
+            console.log('Form ID:' + e.detail.form);
+        });
+        
+        window.addEventListener('ajaxRequestAfter', (e) => {
+            console.log('ajaxRequestAfter');
+            console.log('Form ID:' + e.detail.form);
+        
+            if (e.detail.form === 'myform123') {
+                //alert('myform123');
+            }
+        });
+        
+        document.querySelector('.btn').addEventListener('click', function () {
+            ajaxRequest('http:localhost/testfetch.php?test=123', 'post', {param1: 'param1value'});
+        });
+    </script>
+</body>
+</html>
