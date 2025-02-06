@@ -25,6 +25,38 @@ Events
 - ajaxRequestError — при возникновении ошибки.
 - ajaxRequestAfter — после завершения запроса (всегда вызывается).
 
+Example
+-
+
+**HTML element**
+
+```html
+<button type="button" class="btn">
+    click me
+</button>
+
+<script src="script.js"></script>
+
+<script>
+    // Create listener for custom event
+    window.addEventListener('ajaxRequestSuccess', (e) => {
+        console.log('ajaxRequestSuccess');
+        console.log(e.detail.data, 'Form ID:' + e.detail.form);
+    });
+
+    document.querySelector('.btn').addEventListener('click', function () {
+        ajaxRequest(
+            'http://localhost/testfetch.php', 
+            'post', 
+            {
+                param1: 'param1value'
+            },
+            'callback'
+        );
+    });
+</script>
+```
+
 Usage
 -
 
@@ -72,36 +104,5 @@ window.addEventListener('ajaxRequestAfter', (e) => {
         //alert('myform123');
     }
 });
-```
-
-Example
--
-
-**HTML element**
-
-```html
-<button type="button" class="btn">
-    click me
-</button>
-
-<script src="script.js"></script>
-
-<script>
-    // Create listener for custom event
-    window.addEventListener('ajaxRequestSuccess', (e) => {
-        console.log('ajaxRequestSuccess');
-        console.log(e.detail.data, 'Form ID:' + e.detail.form);
-    });
-
-    document.querySelector('.btn').addEventListener('click', function () {
-        ajaxRequest(
-            'http://localhost/testfetch.php', 
-            'post', 
-            {
-                param1: 'param1value'
-            }
-        );
-    });
-</script>
 ```
 
