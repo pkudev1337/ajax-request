@@ -42,6 +42,19 @@ async function ajaxRequest(
             requestOptions.body = JSON.stringify(data);
         }
 
+        // Добавление get полей
+        if (['GET'].includes(requestOptions.method)) {
+            if (url.indexOf('?') !== -1) {
+                url += '&';
+            } else {
+                url += '?';
+            }
+
+            url += Object.keys(data)
+                    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                    .join('&');
+        }
+
         // Событие перед запросом
         window.dispatchEvent(
             new CustomEvent('ajaxRequestBefore', {
