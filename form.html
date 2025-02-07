@@ -149,6 +149,7 @@
             }
 
             window.addEventListener('ajaxRequestSuccess', (e) => {
+                alert('ajaxRequestSuccess! see the console');
                 console.log('ajaxRequestSuccess');
                 console.log(e.detail.data, 'Form ID:' + e.detail.form);
             });
