@@ -1,0 +1,7 @@
+POST http://localhost/testfetch.php
+Content-Type: application/json
+
+{
+    "name": "pkudev",
+    "formId": "my_form_1"
+}
